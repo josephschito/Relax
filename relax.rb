@@ -55,7 +55,7 @@ module Relax
     end
 
     def update
-      Document.find('body').css('background', self.update_color.css)
+      `document.body.style.backgroundColor = #{self.update_color.css}`
     end
   end
 end
