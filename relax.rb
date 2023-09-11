@@ -3,7 +3,7 @@ module Relax
     attr_accessor :intensity
 
     def initialize
-      self.intensity = rand(0..255)
+      @intensity = rand(0..255)
     end
   end
 
@@ -13,9 +13,9 @@ module Relax
     COLOR_PARAMETERS = %i(r g b)
 
     def initialize
-      COLOR_PARAMETERS.each { |p| self.send("#{p}=", Color.new) }
-      self.a = 1
-      self.percentage = 10
+      @r, @g, @b = 3.times.map { Color.new }
+      @a = 1
+      @percentage = 10
     end
   end
 
@@ -27,10 +27,10 @@ module Relax
         attr_accessor :direction
       end
 
-      self.rgba_color = RGBAColor.new
+      @rgba_color = RGBAColor.new
 
       RGBAColor::COLOR_PARAMETERS.each do |color_parameter|
-        self.rgba_color.send(color_parameter).direction = :→
+        @rgba_color.send(color_parameter).direction = :→
       end
     end
   end
@@ -39,7 +39,7 @@ module Relax
     attr_accessor :color
 
     def initialize
-      self.color = ChangingColor.new
+      @color = ChangingColor.new
     end
 
     def update_color
