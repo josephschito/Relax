@@ -3,7 +3,7 @@ module Relax
     attr_accessor :intensity
 
     def initialize
-      self.intensity = rand(0..100)
+      self.intensity = rand(0..255)
     end
   end
 
