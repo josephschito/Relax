@@ -1,11 +1,15 @@
 module Relax
-  class Color < Struct.new(:intensity)
+  class Color
+    attr_accessor :intensity
+
     def initialize
       self.intensity = rand(0..100)
     end
   end
 
-  class RGBAColor < Struct.new(:r, :g, :b, :a, :percentage)
+  class RGBAColor
+    attr_accessor :r, :g, :b, :a, :percentage
+
     COLOR_PARAMETERS = %i(r g b)
 
     def initialize
@@ -15,7 +19,9 @@ module Relax
     end
   end
 
-  class ChangingColor < Struct.new(:rgba_color, :direction)
+  class ChangingColor
+    attr_accessor :rgba_color, :direction
+
     def initialize
       Color.instance_eval do
         attr_accessor :direction
@@ -29,7 +35,9 @@ module Relax
     end
   end
 
-  class Background < Struct.new(:color)
+  class Background
+    attr_accessor :color
+
     def initialize
       self.color = ChangingColor.new
     end
