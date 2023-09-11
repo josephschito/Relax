@@ -5,7 +5,7 @@
 # Usage
   `gem install opal`
 
-  `RUBYOPT="-ropal-jquery" opal -c app.rb > app.js`
+  `opal -c app.rb > app.js`
 
   `open index.html`
 <br /><br /><br />
